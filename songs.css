@@ -1,0 +1,205 @@
+/*
+
+  Program: YouTube Playlist
+  Author: Anthony Burnett
+  Date:  February 3 2019
+  Description: Uses embedded youtube 
+  videos to create a custom youtube
+  playlist style 
+
+
+*/
+
+
+/* ************************************************************************** */
+/* SONGS PANE */
+
+#songs {
+    background-color: white;
+    width: 70%;
+    height: 100%;
+    float:left;
+}
+
+#songs_header {
+    height: 15%;
+    min-height: 75;
+    background-color: var(--color1);
+    overflow: hidden;
+}
+
+#songs_header h3{
+    float:left;
+    width:70%;
+    height:25;
+    margin-top:0;
+    padding:10;
+    margin-bottom:0;
+}
+#songs_header h6{
+    /* background-color:magenta; */
+    float:right;
+    line-height: 1;
+    height:25;
+    margin-top:0;
+    padding:10;
+    font-weight: 100;
+    color: #555;
+}
+
+#add_song_btn {
+    background-color:var(--color1);
+    width: 30;
+    height: 30;
+    font-size:32;
+    text-align: center;
+    line-height: 0.8;
+    cursor: pointer;
+    float: right;
+}
+
+#add_song_btn:hover {
+    background-color: var(--color2) !important;
+}
+
+.song_pane {
+    background-color: #eeeeee;
+    width: 100%;
+    height: 85%;
+    overflow-y: scroll;
+}
+
+.song {
+    background-color: white;
+    color: #444;
+    font-size: 13;
+    height:25;
+}
+
+.song:hover { 
+    background-color: var(--color3) !important;
+    cursor: pointer !important;
+    color:rgb(20,20,20) !important;
+}
+
+
+.video_index {
+    /* background-color: blue; */
+    width: 7%;
+    height: 100%;
+    line-height: 1.9;
+    margin:0;
+    padding: 0;
+    float: left;
+    text-align: center;
+    /*line-height: 2;*/
+}
+
+.video_title {
+    width: 50%;
+    height: 100%;
+    line-height: 1.9;
+    overflow: hidden;
+    float: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.video_artist {
+    width: 38%;
+    height: 100%;
+    line-height: 1.9;
+    float: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.video_delete {
+    text-align: center;
+    font-weight: bolder;
+    line-height: 1.9;
+    width: 5%;
+    height: 100%;
+    float: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.video_delete:hover {
+    background-color: red !important;
+}
+
+/* SONG PANE DESCRIPTION */
+
+#song_pane_desc {
+    /* background-color: rgb(200, 100, 200); */
+    background-color: var(--color1);
+    color: #eee;
+    padding-bottom: 3;
+    padding-top:3;
+    height: 18;
+    font-size: 15;
+    width:100%;
+    margin-top: -25;
+    float:left;
+}
+
+#song_pane_desc_index {
+    background-color: var(--color1);
+    height: 100%;
+    width: 7%;
+    margin-left: 3;
+    text-align: center;
+    float:left;
+}
+
+#song_pane_desc_title {
+    background-color: var(--color1);
+    height: 100%;
+    width: 50%;
+    margin:0;
+    padding:0;
+    float:left;
+    cursor: pointer;
+}
+
+#song_pane_desc_title div {
+    background-color: var(--color1);
+    float: right;
+    padding-right: 7;
+    margin-top:-2;
+}
+
+#song_pane_desc_artist {
+    background-color: var(--color1);
+    height: 100%;
+    width: 37%;
+    margin:0;
+    padding:0;
+    float:left;
+    cursor: pointer;
+}
+
+#song_pane_desc_artist div {
+    background-color: var(--color1);
+    float: right;
+    padding-right: 7;
+    margin-top:-2;
+}
+
+#shuffle_button {
+    width: 5%; 
+    height: 20;
+    float:left;
+    text-align: center;
+    font-weight: bold;
+    background-color: #eee;
+}
+
+#shuffle_button:hover{
+    background-color: var(--color3) !important;
+    cursor: pointer !important;
+}

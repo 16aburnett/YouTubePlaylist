@@ -1,0 +1,139 @@
+<!--
+
+  Program: YouTube Playlist
+  Author: Anthony Burnett
+  Date:  February 2019
+  Description: Uses embedded youtube 
+  videos to create a custom youtube
+  playlist style 
+
+  Fun Fact:
+  7.378697629483821e+19
+  is the number of different videoIds
+
+  since you can have 
+  - lowercase and uppercase letters (26 * 2)
+  - numbers (10)
+  - and '-' and '_' (2)
+
+  for a total of 64 different char for one position
+  and there are 11 char in a videoId 
+
+  therefore there is 64 ^ 11
+  or 
+  7.378697629483821e+19
+
+  thats a lot of videos they can have
+
+
+-->
+
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="songs.css">
+  <link rel="stylesheet" href="playlists.css">
+  <link rel="stylesheet" href="videodesc.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/p5.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/addons/p5.dom.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/addons/p5.sound.min.js"></script>
+  <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+  <script type="text/javascript" src="data.js"></script>
+  <script type="text/javascript" src="updatehtml.js"></script>
+  <script type="text/javascript" src="youtubeplayer.js"></script>
+  <script type="text/javascript" src="sketch.js"></script>
+  <script type="text/javascript" src="drag.js"></script>
+  <script type="text/javascript" src="util.js"></script>
+</head>
+
+<body id="background" width="100%" height="100%">
+
+<!-- -------------------------------------------------------------------------- -->
+
+  <div class="left_column">
+    <!--Video Window-->
+    <div id="video_box">
+      <!--Video-->
+      <iframe id="video" width="560" height="315" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/kzQTc0-iBX8?rel=0;&autoplay=0&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+    </div>
+    <!--Video Description-->
+    <div id="video_desc">
+      <div id="video_desc_edit" onclick="editSong()">edit</div>
+      <textarea id="video_desc_title_field" disabled>[Title]</textarea>
+      <textarea id="video_desc_artist_field" disabled>[Artist]</textarea>
+    </div>
+    <!--Lyrics Window - if im feelin adventurous :P -->
+  </div>
+
+
+
+
+<!-- -------------------------------------------------------------------------- -->
+
+  <div class="right_column">
+    <!-- SONGS PANE -->
+  <div id="songs">
+    <div id="songs_header">
+      <h3 id="songs_title">[PlaylistName]</h3>
+      <div id="add_song_btn" onclick="addSong()">+</div>
+      <h6 id="song_count">[curr] / [count]</h6>
+      <div id="song_pane_desc">
+        <div id="song_pane_desc_index">#</div>
+        <div id="song_pane_desc_title" onclick="toggleSortedByTitle()">Title<div id="song_pane_desc_title_arrow"></div>
+        </div>
+        <div id="song_pane_desc_artist" onclick="toggleSortedByArtist()">Artist<div id="song_pane_desc_artist_arrow">
+          </div>
+        </div>
+        <div id="shuffle_button" onclick="toggleShuffledSongs()">N</div>
+      </div>
+    </div>
+    
+    <div class="song_pane" id="song_pane">
+    </div>
+  </div>
+  <!-- PLAYLIST PANE -->
+  <div id="playlists">
+      <div id="playlists_header">
+        <h3 id="playlist_header_title">Playlists</h3>
+        <div id="playlists_tab" onclick="playlistsTab()">P</div>
+        <div id="artists_tab" onclick="artistsTab()">A</div>
+      </div>
+      <div class="playlist_blocks" id="playlist_pane">
+      </div>
+    </div>
+  </div>
+
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- FOOTER -->
+  <div id="footer">
+    <div id="f_current_song">
+      <div id="f_current_song_thmbnl">
+        <div id="f_current_song_thmbnl_img"></div>
+      </div>
+      <div id="f_current_song_desc">
+        <div id="f_current_song_title">[Title]</div>
+        <div id="f_current_song_artist">[Artist]</div>
+      </div>
+    </div>
+    <div id="f_controls">
+      <div id="f_controls_prev" onclick="previousSong()"></div>
+      <div id="f_controls_play" onclick="pauseSong()"></div>
+      <div id="f_controls_next" onclick="nextSong()"></div>
+    </div>
+    <div id="f_layout_btn">
+      <div id="f_layout_btn_label" onclick="toggleLayout()"></div>
+    </div>
+    <div id="f_shuffle_btn">
+      <div id="f_shuffle_btn_label" onclick="toggleShuffledSongs()"></div>
+    </div>
+  </div>
+  <h6 style="position:fixed; bottom:0; right:0; color: white; margin:0;">&copy; Copyright Anthony Burnett - February
+    26 2019</h6>
+</body>
+
+</html>

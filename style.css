@@ -1,0 +1,270 @@
+/*
+
+  Program: YouTube Playlist
+  Author: Anthony Burnett
+  Date:  February 3 2019
+  Description: Uses embedded youtube 
+  videos to create a custom youtube
+  playlist style 
+
+*/
+
+:root {
+    --color1: rgb(100, 175, 200);
+    --color2: rgb(50, 125, 150); 
+    /* --color3: rgb(200, 50, 200); */
+    /* --color4: rgb(150, 50, 150); */
+    --color3: rgb(100, 175, 200); 
+    --color4: rgb(50, 125, 150); 
+  }
+
+body {
+    /* background-color: lime; */
+    /* background-image: url("res/background3.gif"); */
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    margin:0;
+    padding: 0;
+    height:100%;
+    width: auto;
+    display: block;
+    overflow: hidden;
+    overflow-y: hidden;
+    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+.left_column {
+    /* background-color: red; */
+    height: 85%;
+    min-width: 560;
+    width: 50%;
+    float:left;
+    padding: 0;
+    margin: 0;
+}
+
+.right_column {
+    /* background-color: cyan; */
+    height: 85%;
+    width: 50%;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+/* *************************************** */
+/* VIDEO PLAYER */
+
+#video_box {
+    width: 100%; 
+    height: 75%;
+    float: left;
+}
+
+/* ************************************************************************** */
+/* ************************************************************************** */
+/******FOOTER*******/
+
+#footer {
+    background-color:rgba(0,0,0,.90);
+    height:15%;
+    /* height:100; */
+    width:100%;
+    min-width: 700;
+    position: fixed;
+    bottom:0;
+    box-shadow: 2px 2px 2px 2px #000;
+}
+
+#f_current_song {
+    /* background-color: red; */
+    height: 100%;
+    width: 42%;
+    float:left;
+    color: #eee;
+}
+
+#f_current_song_thmbnl {
+    /* background-color: blue; */
+    height: 100%;
+    width: 25%;
+    float:left;
+}
+
+#f_current_song_thmbnl_img {
+    background-image: url('http://i.ytimg.com/vi/LAYgZEMMWxo/maxresdefault.jpg');
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    /* background-color: lime; */
+    height: 75%;
+    width: 90%;
+    margin-top: 15;
+    margin-left:5;
+    float:left;
+
+}
+
+#f_current_song_desc {
+    width:75%;
+    float:right;
+}
+
+#f_current_song_title {
+    /* background-color: lime; */
+    height: 50;
+    width: 100%;
+    font-size:20;
+    line-height:4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+#f_current_song_artist {
+    /* background-color: yellow; */
+    height: 50;
+    width: 100%;
+    line-height:2;
+    font-size:16;
+    color: #ccc;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+#f_controls {
+    /* background-color:blue; */
+    height: 100%;
+    width: 200;
+    float:left;
+}
+
+#f_controls_prev {
+    /* background-color: lime; */
+    background-image: url('res/icons/prev_white.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    margin-top:25;
+    margin-left:25;
+    height: 50%;
+    width: 25%;
+    line-height: 1.4;
+    text-align:center;
+    cursor: pointer;
+    font-size: 32;
+    float:left;
+    color: #eee;
+}
+
+#f_controls_prev:hover {
+    background-image: url('res/icons/prev_black.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    background-color: rgba(255,255,255,0.25);
+}
+
+#f_controls_play {
+    /* background-color: aqua; */
+    background-image: url('res/icons/play_white.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    margin-top:25;
+    height: 50%;
+    width: 25%;
+    line-height: 1.4;
+    text-align:center;
+    cursor: pointer;
+    font-size: 32;
+    float:left;
+    color: #eee;
+}
+
+#f_controls_play:hover {
+    background-image: url('res/icons/play_black.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    background-color: rgba(255,255,255,0.25);
+}
+
+#f_controls_next {
+    /* background-color: orange; */
+    background-image: url('res/icons/next_white.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    margin-top:25;
+    height: 50%;
+    width: 25%;
+    line-height: 1.4;
+    text-align:center;
+    cursor: pointer;
+    font-size: 32;
+    float:left;
+    color: #eee;
+}
+
+#f_controls_next:hover {
+    background-image: url('res/icons/next_black.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    background-color: rgba(255,255,255,0.25);
+}
+
+#f_shuffle_btn {
+    /* background-color: yellow; */
+    float:right;
+    height: 100%;
+    width: 100;
+}
+
+#f_shuffle_btn_label {
+    /* background-color: lime; */
+    background-image: url('res/icons/shuffle_white.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    cursor: pointer;
+    height: 50;
+    width: 50;
+    margin-top:25;
+    margin-left:25;
+}
+
+#f_shuffle_btn_label:hover {
+    background-image: url('res/icons/shuffle_black.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    background-color: rgba(255,255,255,0.25);
+}
+
+#f_layout_btn {
+    /* background-color: magenta; */
+    float:right;
+    height: 100%;
+    width: 100;
+}
+
+#f_layout_btn_label {
+    /* background-color: cyan; */
+    background-image: url('res/icons/menu_white.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    cursor: pointer;
+    height: 50;
+    width: 50;
+    margin-top:25;
+    margin-left:25;
+}
+
+#f_layout_btn_label:hover {
+    background-image: url('res/icons/menu_black.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+    background-color: rgba(255,255,255,0.25);
+}
+
+
