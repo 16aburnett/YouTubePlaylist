@@ -19,7 +19,7 @@ var dataToLoad;
 
 /*************************************************************************/
 // Saving states
- 
+
 function saveData(){
 
   dataToSave = {};
@@ -65,7 +65,7 @@ function saveData(){
 
 function preload(){
 
-  dataToLoad = loadJSON("datas.JSON");
+  dataToLoad = loadJSON("datas.json");
 
 }
 
